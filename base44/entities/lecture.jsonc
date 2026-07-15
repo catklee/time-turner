@@ -1,0 +1,40 @@
+{
+  "name": "Lecture",
+  "type": "object",
+  "properties": {
+    "professor_name": {
+      "type": "string",
+      "description": "Name of the professor/instructor"
+    },
+    "lecture_title": {
+      "type": "string",
+      "description": "Title of the lecture or recording"
+    },
+    "lecture_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the lecture took place"
+    },
+    "course_name": {
+      "type": "string",
+      "description": "Course name or number, e.g. EECS 280"
+    },
+    "video_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Direct S3/Leccap mp4 URL for the recording"
+    },
+    "canvas_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Original Canvas/Leccap page the video was captured from"
+    }
+  },
+  "required": ["lecture_title", "video_url"],
+  "rls": {
+    "create": true,
+    "read": { "created_by": "{{user.email}}" },
+    "update": { "created_by": "{{user.email}}" },
+    "delete": { "created_by": "{{user.email}}" }
+  }
+}

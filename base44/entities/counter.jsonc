@@ -1,0 +1,18 @@
+{
+  // Singleton-style counters keyed by name, e.g. { key: "extension_downloads", count: 42 }.
+  // Written only by backend functions via service role; the public reads the
+  // value through the download-counter function, never directly.
+  "name": "Counter",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unique name of the counter, e.g. extension_downloads"
+    },
+    "count": {
+      "type": "integer",
+      "description": "Current value of the counter"
+    }
+  },
+  "required": ["key"]
+}

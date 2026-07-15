@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Time-Turner",
+  "version": "1.0.0",
+  "description": "Capture Leccap/Canvas lecture video links as they load and organize them by professor, title, and date for personal offline access.",
+  "permissions": ["webRequest", "storage", "downloads", "tabs"],
+  "host_permissions": [
+    "*://*.instructure.com/*",
+    "*://*.leccap.engin.umich.edu/*",
+    "*://*.amazonaws.com/*",
+    "https://base44.app/*",
+    "https://*.base44.app/*"
+  ],
+  "background": {
+    "service_worker": "dist/background.bundle.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Time-Turner"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.instructure.com/*", "*://*.leccap.engin.umich.edu/*"],
+      "js": ["dist/content.bundle.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "canvas-lecture-vault",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild extension/background.js extension/content.js extension/popup.js --bundle --outdir=extension/dist --format=iife --target=chrome110 --entry-names=[name].bundle",
+    "watch": "npm run build -- --watch",
+    "build:site": "npm run build && esbuild web/main.js --bundle --outfile=site-dist/app.js --format=iife --target=chrome110 && cp web/index.html web/get-extension.html web/contact.html web/style.css site-dist/ && rm -f site-dist/time-turner-extension.zip && cd extension && zip -rq ../site-dist/time-turner-extension.zip manifest.json popup.html popup.css dist -x '*.DS_Store'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "base44": "^0.1.3",
+    "esbuild": "^0.28.1"
+  },
+  "dependencies": {
+    "@base44/sdk": "^0.8.38"
+  }
+}
