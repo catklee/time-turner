@@ -22,7 +22,6 @@ function shell(contentHtml) {
       <nav>
         <a class="nav-link active" href="index.html">Library</a>
         <a class="nav-link" href="get-extension.html">Get the Extension</a>
-        <a class="nav-link" href="contact.html">Contact</a>
       </nav>
     </aside>
     <main class="content">${contentHtml}</main>
